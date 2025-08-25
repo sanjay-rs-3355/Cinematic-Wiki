@@ -507,7 +507,7 @@ footer {
 }
 .video-background-section {
   position: relative;
-  height: 70vh;
+  height: 100vh;
   overflow: hidden;
   margin-bottom: 2rem;
 }
