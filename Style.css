@@ -1,0 +1,539 @@
+/* ---------- GLOBAL ---------- */
+/* Basic body and font styling, background gradient, and global text color */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle, #110f0f, #000000);
+  color: #c81616; /* Red-ish text color */
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+/* Images scale responsively and centered */
+img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+/* Animated title styling */
+.hero-section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  display: inline-block;
+  color: var(--clr-accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 0 0 10px var(--clr-accent);
+}
+
+/* Each character animates with bounce + fade in effect */
+.hero-section-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-20px) scale(0.8);
+  animation: bounceFadeIn 0.6s ease-out forwards;
+}
+
+/* Keyframe for bounceFadeIn animation */
+@keyframes bounceFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- HEADER ---------- */
+/* Header layout: flexbox with spacing and transparent black background */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 2px solid #76ff03;
+  box-shadow: 0 0 10px #76ff0344;
+  color: #76ff03;
+}
+
+/* Logo container flex with gap */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo image size and green glow */
+.logo {
+  width: 60px;
+  filter: drop-shadow(0 0 5px #76ff03);
+}
+
+/* Header title styling with green glow text shadow */
+.logo-container h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 0 0 10px #76ff03;
+}
+
+/* Navigation links horizontal layout */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* Navigation anchor styling */
+nav a {
+  color: #76ff03;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Navigation underline animation on hover */
+nav a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #76ff03;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- SEARCH ---------- */
+/* Search input and button container styling */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #76ff03;
+  border-radius: 8px;
+  background: #0a0a0a;
+  box-shadow: 0 0 10px #76ff03aa;
+}
+
+/* Search input styling */
+.search-container input {
+  background: transparent;
+  border: none;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+  width: 180px;
+}
+
+/* Search button styling with green background and black text */
+.search-container button {
+  background: #76ff03;
+  border: none;
+  color: #000;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* ---------- HERO ---------- */
+/* Hero section background image, padding, and text shadow */
+.hero {
+  background: url('images/bg-checkered.jpg') center/cover no-repeat;
+  padding: 100px 20px;
+  color: white;
+  text-shadow: 0 0 8px #000;
+  animation: fadeInSlideUp 1.5s ease;
+}
+
+/* Hero fade and slide up animation */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero main title styling */
+.hero-content h2 {
+  font-size: 3rem;
+  text-shadow: 0 0 15px #76ff03;
+}
+
+/* Hero subtitle styling */
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Call-to-action button styling */
+.cta-button {
+  padding: 14px 30px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px #ff000088;
+  transition: all 0.3s ease;
+}
+
+/* CTA button hover effect */
+.cta-button:hover {
+  background-color: #ff4c4c;
+  transform: scale(1.05);
+}
+.hero-content p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+  text-shadow: 0 0 5px #76ff03aa; /* subtle glow if you want */
+}
+
+/* ---------- CARD GRID ---------- */
+/* Container for explore section */
+#explore {
+  padding: 2rem 1rem;
+}
+
+/* Grid layout for cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+  animation: fadeInScale 1.2s ease;
+}
+
+/* Card fade in + scale animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Individual card styling */
+.card {
+  background: var(--clr-glass-bg); /* translucent glass effect */
+  border-radius: 20px; /* rounded corners */
+  overflow: hidden;
+  backdrop-filter: blur(var(--blur));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 0;
+}
+
+/* Glowing animated border effect behind card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(118, 255, 3, 0.2), transparent);
+  transform: rotate(0deg);
+  animation: rotateGlow 4s linear infinite;
+  z-index: -1; /* behind card content */
+  border-radius: 20px;
+}
+/* Override glowing background color for each card type */
+.card.marvel::before {
+  background: linear-gradient(45deg, transparent, rgba(230, 36, 41, 0.3), transparent); /* Marvel red glow */
+}
+
+.card.dc::before {
+  background: linear-gradient(45deg, transparent, rgba(0, 114, 204, 0.3), transparent); /* DC blue glow */
+}
+
+.card.monsterverse::before {
+  background: linear-gradient(45deg, transparent, rgba(255, 204, 0, 0.3), transparent); /* Monsterverse yellow glow */
+}
+
+/* Keyframe for rotating glow */
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hover scale + lift effect */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Different glow colors on hover for each card type */
+.card.marvel:hover {
+  box-shadow: 0 0 25px #e62429aa;
+}
+.card.dc:hover {
+  box-shadow: 0 0 25px #007accaa;
+}
+.card.monsterverse:hover {
+  box-shadow: 0 0 25px #ffcc00aa;
+}
+
+/* Card image styles with rounded top corners */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: block;
+}
+
+/* Card content background and rounded bottom corners */
+.card-content {
+  padding: 1.2rem;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Card title styling */
+.card-content h4 {
+  color: #76ff03;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* Card paragraph text styling */
+.card-content p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Card button styling with green glow and hover scale */
+.card-button {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #7fff00, #4caf00);
+  color: #000;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.6),
+    0 0 10px #7fff00aa,
+    0 4px 8px rgba(0, 128, 0, 0.4);
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.5s ease,
+    background 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.card-button:hover {
+  background: linear-gradient(145deg, #c6ff00, #76ff03);
+  box-shadow:
+    inset 0 2px 8px rgba(255, 255, 255, 0.9),
+    0 0 18px #c6ff00dd,
+    0 6px 14px rgba(118, 255, 3, 0.6);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+/* ---------- FOOTER ---------- */
+/* Footer styling with green border, padding, and shadow */
+footer {
+  padding: 2rem;
+  background-color: #000;
+  border-top: 2px solid #76ff03;
+  color: #76ff03;
+  box-shadow: 0 -5px 10px #76ff0344;
+}
+
+/* ---------- FRIDAY FLOATING ASSISTANT ---------- */
+/* Floating round toggle button */
+#friday-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #76ff03;
+  color: #000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 54px;
+  box-shadow: 0 0 18px #76ff03cc;
+  cursor: pointer;
+}
+
+/* Panel containing chat assistant */
+#friday-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 500px;
+  background: #111;
+  color: #76ff03;
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 25px #76ff03aa;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* Assistant panel header */
+#friday-panel h4 {
+  margin: 0 0 10px 0;
+}
+
+/* Chat message box */
+#chatbox {
+  background: #1e1e1e;
+  padding: 10px;
+  height: 150px;
+  overflow-y: auto;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: left;
+}
+
+/* Assistant input field */
+#friday-panel input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+  background: #333;
+  color: #fff;
+}
+
+/* Assistant send buttons */
+#friday-panel button {
+  margin-top: 5px;
+  padding: 6px 12px;
+  background: #76ff03;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Layout for assistant controls */
+.friday-controls {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Range input inside assistant */
+.friday-controls input {
+  width: 100%;
+}
+
+/* Animation for AI message bubbles */
+.ai-msg {
+  animation: bounceIn 0.6s ease;
+}
+
+/* Bounce in keyframe for messages */
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/*==================== GLOBAL BUTTON STYLE ====================*/
+/* Shared button style for all buttons and links with class .button, .cta-button, .card-button, .friday-controls button */
+.button,
+.cta-button,
+.card-button,
+.friday-controls button {
+  background: linear-gradient(135deg, #76ff03, #48ff00);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 15px #76ff03aa;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for all buttons sharing the above style */
+.button:hover,
+.cta-button:hover,
+.card-button:hover,
+.friday-controls button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #76ff03;
+  background: linear-gradient(135deg, #aaff66, #76ff03);
+}
+.video-background-section {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.video-title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #76ff03;
+}

@@ -1,0 +1,322 @@
+/*==================== VARIABLES ====================*/
+:root {
+  --clr-bg: #000000;
+  --clr-text: #ffffff;
+  --clr-accent: #e62429; /* Red for Marvel */
+  --clr-accent-hover: #ff4c4c;
+  --clr-glass-bg: rgba(255, 255, 255, 0.05);
+  --clr-glass-shadow: rgba(230, 36, 41, 0.2);
+  --clr-red-shadow: rgba(230, 36, 41, 0.4);
+  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --transition-speed: 0.4s;
+}
+
+/*==================== GLOBAL ====================*/
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  overflow-x: hidden;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/*==================== HEADER VIDEO ====================*/
+.video-header {
+  position: relative;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #330000, #1a0000);
+  border-bottom: 3px solid var(--clr-accent);
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.3) saturate(1.1);
+}
+
+.video-header:hover .bg-video {
+  filter: brightness(0.5) saturate(1.3);
+}
+.video-header:hover .header-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.hero-section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 3rem auto 1.5rem;
+  color: #f0f0f0; /* Light color for contrast */
+
+  /* Neon glow effect */
+  text-shadow:
+    0 0 5px #ff416c,
+    0 0 10px #ff416c,
+    0 0 20px #ff4b2b,
+    0 0 30px #ff4b2b,
+    0 0 40px #ff416c,
+    0 0 55px #ff416c,
+    0 0 75px #ff4b2b;
+
+  position: relative;
+  padding-bottom: 0.7rem;
+  width: fit-content;
+  cursor: default;
+}
+
+
+/* Decorative underline with animation */
+.hero-section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  border-radius: 2px;
+  animation: underlineGlow 2.5s ease-in-out infinite;
+}
+
+/* Keyframes for underline glow animation */
+@keyframes underlineGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px #ff416c, 0 0 15px #ff4b2b;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff4b2b, 0 0 30px #ff416c;
+  }
+}
+
+
+.header-content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  background: var(--clr-glass-bg);
+  box-shadow: 0 8px 32px var(--clr-glass-shadow);
+  border-radius: 12px;
+  padding: 1.5rem 3rem;
+  color: var(--clr-text);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.header-content h1 {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  color: var(--clr-accent);
+  text-shadow: 0 0 15px var(--clr-accent);
+  margin-bottom: 1rem;
+}
+
+.header-content nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.header-content nav a {
+  color: var(--clr-accent);
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.header-content nav a:hover {
+  color: var(--clr-accent-hover);
+  text-shadow: 0 0 10px var(--clr-accent-hover);
+}
+.selection-card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.selection-card:hover {
+  transform: scale(1.05);
+}
+
+/*==================== CARD GRID ====================*/
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 12px var(--clr-red-shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 280px;
+  flex: 1 1 280px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #e62429aa;
+}
+
+.card img {
+  width: 100%;
+  height: 280px;
+  object-fit:cover ;
+  display: block;
+}
+
+.card-content {
+  background: #222;
+  color: var(--clr-accent);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  text-align: left;
+  height: 50%;
+  overflow-y: auto;
+}
+
+.card:hover .card-content,
+.card.active .card-content {
+  transform: translateY(0);
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card-content p {
+  color: #ddd;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/*==================== FRIDAY BOT ====================*/
+#friday-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--clr-accent);
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 54px;
+  box-shadow: 0 0 18px var(--clr-red-shadow);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#friday-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  max-height: 420px;
+  background: #111;
+  color: var(--clr-accent);
+  border-radius: 14px;
+  padding: 1.2rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 0 25px var(--clr-red-shadow);
+  overflow: hidden;
+  z-index: 999;
+}
+
+#chatbox {
+  height: 140px;
+  background: #222;
+  border-radius: 8px;
+  padding: 0.5rem;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  text-align: left;
+  color: #eee;
+}
+
+#friday-panel input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  background: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+}
+
+#friday-panel button {
+  margin-top: 5px;
+  padding: 8px 12px;
+  background: var(--clr-accent);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/*==================== FOOTER ====================*/
+footer {
+  padding: 2rem;
+  background: #000;
+  border-top: 2px solid var(--clr-accent);
+  color: var(--clr-accent);
+  font-weight: bold;
+  text-align: center;
+}
+.ai-msg {
+  animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px #76ff03aa;
+  }
+  50% {
+    box-shadow: 0 0 25px #aaff66, 0 0 40px #76ff03;
+  }
+}
+
+.button,
+.cta-button,
+.card-button,
+.friday-controls button {
+  animation: glowPulse 2s infinite;
+}

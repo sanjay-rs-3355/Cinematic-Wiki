@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R.S.Monsters</title>
+  <base href="./">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.jpg" alt="Kaiju Wiki Logo" class="logo" />
+      <h1 class="hero-section-title" id="animatedTitle">R.S.Monsters</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="marvel.html">Marvel</a></li>
+        <li><a href="dcu.html">DC</a></li>
+        <li><a href="monstervers.html">MonsterVerse</a></li>
+      </ul>
+    </nav>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." aria-label="Search" />
+      <button type="submit" aria-label="Search button">&#128269;</button>
+    </div>
+  </header>
+  <section class="fade-section">
+    <h2>Explore the Titans</h2>
+    <p>This content will fade up when it enters view.</p>
+  </section>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Your Ultimate Superhero & MonsterVerse Wiki</h2>
+      <p>Dive into Marvel, DC, and MonsterVerse universes — never miss a story again!</p>
+      <a href="#explore" class="cta-button">Explore Universes</a>
+    </div>
+  </section>
+<!-- 🎥 Background Video Section -->
+<section class="video-background-section">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="Timeline 1.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-overlay">
+    <h2 class="video-title">Enter the Multiverse</h2>
+  </div>
+</section>
+  <main>
+    <section id="explore">
+      <h3>Select Your Universe</h3>
+      <div class="card-grid">
+        <!-- Marvel -->
+        <div class="card marvel">
+          <img src="marvel img\marvel.webp" alt="MARVEL" />
+          <div class="card-content">
+            <h4>Marvel</h4>
+            <p>Explore heroes like Spider-Man, Iron Man, and the Avengers.</p>
+            <a href="marvel.html" class="card-button">Explore Marvel</a>
+          </div>
+        </div>
+        <!-- DC -->
+        <div class="card dc">
+          <img src="dcu img\dcu.webp" alt="DCU" />
+          <div class="card-content">
+            <h4>DC</h4>
+            <p>Discover legends like Batman, Superman, and Wonder Woman.</p>
+            <a href="dcu.html" class="card-button">Explore DC</a>
+          </div>
+        </div>
+        <!-- MonsterVerse -->
+        <div class="card monsterverse">
+          <img src="monstervers img\monstervers.webp" alt="MonsterVerse" />
+          <div class="card-content">
+            <h4>MonsterVerse</h4>
+            <p>Witness titans like Godzilla and King Kong in epic battles.</p>
+            <a href="monstervers.html" class="card-button">Explore MonsterVerse</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 R.S.Monsters | Designed with a Godzilla theme</p>
+  </footer>
+
+  <!-- 🧠 FRIDAY Assistant (Floating Widget) -->
+<!-- Toggle Button -->
+<div id="friday-toggle">🤖</div>
+<div id="friday-panel">
+  <h4>FRIDAY Assistant</h4>
+  <div id="chatbox"></div>
+  <input type="text" id="userInput" placeholder="Ask me something..." />
+  <button onclick="handleQuery()">Send</button>
+  <button onclick="startListening()">🎤</button>
+  <div class="friday-controls">
+    <label for="volumeControl">🔊</label>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" />
+  </div>
+</div>
+</body>
+</html>
