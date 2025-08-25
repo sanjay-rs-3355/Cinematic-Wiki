@@ -507,7 +507,7 @@ footer {
 }
 .video-background-section {
   position: relative;
-  height: 50vh;
+  height: 70vh;
   overflow: hidden;
   margin-bottom: 2rem;
 }
@@ -515,7 +515,7 @@ footer {
 .bg-video {
   width: 100%;
   height: 100%;
-  object-fit: fill cover;
+  object-fit: cover;
   filter: brightness(0.4);
   position: absolute;
   top: 0;
