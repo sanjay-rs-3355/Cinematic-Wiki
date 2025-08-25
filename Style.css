@@ -507,9 +507,10 @@ footer {
 }
 .video-background-section {
   position: relative;
-  height: 100vh;
+  height: 100vh; /* full screen height */
   overflow: hidden;
   margin-bottom: 2rem;
+  /* fill background if bars appear */
 }
 
 .bg-video {
