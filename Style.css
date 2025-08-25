@@ -504,11 +504,10 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 0 25px #76ff03;
   background: linear-gradient(135deg, #aaff66, #76ff03);
-}
-.video-background-section {
+}.video-background-section {
   position: relative;
   width: 100%;
-  height: 45vh; /* cinematic rectangle height */
+  height: 85vh; /* cinematic rectangle height */
   max-height: 500px; /* keeps it from getting too tall */
   overflow: hidden;
   margin: 2rem auto;
@@ -519,7 +518,7 @@ footer {
 .bg-video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills rectangle without squishing */
+  object-fit: cover;    /* fill rectangle properly */
   position: absolute;
   top: 0;
   left: 0;
@@ -528,21 +527,35 @@ footer {
 }
 
 .video-overlay {
-  position: relative;
-  z-index: 1;
-  height: 100%;
+  position: sticky;   /* overlay exactly inside video */
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1rem;
   color: #fff;
+  z-index: 1;
+  padding: 1rem;
 }
 
 .video-title {
-  font-size: 2.2rem;
+  font-size: 3.5rem;
+  margin-top: 1.5rem;
   color: #ffffff;
-  text-shadow: 0 0 12px #76ff03, 0 0 24px #00ffcc;
+  text-shadow: 0 0 10px #76ff03;
+}
+.video-overlay h2 {
+  font-size: clamp(2.5rem, 3vw, 3rem);
+}
+
+.video-overlay p {
+  font-size: clamp(1.5rem, 1.5vw, 1.4rem);
+}
+
+.video-title {
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
 }
