@@ -514,7 +514,7 @@ footer {
 }
 
 .bg-video {
-  width: 100%;
+  width: 150%;
   height: 100%;
   object-fit: fill;
   filter: brightness(0.4);
